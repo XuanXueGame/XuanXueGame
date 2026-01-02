@@ -98,13 +98,23 @@ body {
 
 #search-input:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+	border-color: #3b82f6;
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* ✅核心样式：表格滚动容器 重中之重 */
+.table-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* IOS顺滑滚动 */
+    scrollbar-width: thin; /* 火狐滚动条美化 */
 }
 
 .games-table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 768px; /* 保证移动端表格最小宽度，内容不挤压 */
 }
 
 .table-header {
@@ -117,6 +127,7 @@ body {
     padding: 16px 22px;
     text-align: left;
     border-bottom: 1px solid #e2e8f0;
+    box-sizing: border-box;
 }
 
 .games-table th {
@@ -195,32 +206,6 @@ body {
     background-color: #fefefe;
 }
 
-/* 响应式设计 增强版 */
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 1.9rem;
-    }
-    .stats-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    .games-table th, .games-table td {
-        padding: 12px 15px;
-    }
-    .links-container a {
-        padding: 7px 12px;
-        font-size: 13px;
-    }
-    .pagination {
-        gap: 6px;
-    }
-    .pagination-btn {
-        padding: 6px 9px;
-        font-size: 12px;
-    }
-}
-
 .pagination {
     padding: 22px 30px;
     text-align: center;
@@ -284,6 +269,7 @@ body {
     margin-left: 12px;
     min-width: 120px;
 }
+
 /* ========== 联机补丁跳转按钮 美化样式 ========== */
 .jump-btn-box {
     padding: 16px 30px;
@@ -292,66 +278,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.jump-to-patch {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 30px;
-    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 10px;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.18);
-    letter-spacing: 1px;
-}
-.jump-to-patch:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.25);
-    opacity: 0.95;
-}
-.jump-icon {
-    font-size: 1.2rem;
-}
-/* 手机端适配 */
-@media (max-width:768px) {
-    .jump-to-patch {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-}
-/* ========== 联机补丁跳转按钮 美化样式 ========== */
-.jump-btn-box {
-    padding: 16px 30px;
-    background-color: #f0f7ff;
-    border-bottom: 1px solid #e2e8f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.jump-to-patch {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 30px;
-    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 10px;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.18);
-    letter-spacing: 1px;
 }
 .jump-to-index {
     display: inline-flex;
@@ -371,80 +297,13 @@ body {
     box-shadow: 0 4px 12px rgba(147, 51, 234, 0.18);
     letter-spacing: 1px;
 }
-/* 两个按钮统一悬浮动画效果 */
-.jump-to-patch:hover, .jump-to-index:hover {
+.jump-to-index:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     opacity: 0.95;
 }
 .jump-icon {
     font-size: 1.2rem;
-}
-/* 手机端自适应适配 */
-@media (max-width:768px) {
-    .jump-to-patch, .jump-to-index {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-}
-/* ========== 联机补丁跳转按钮 美化样式 ========== */
-.jump-btn-box {
-    padding: 16px 30px;
-    background-color: #f0f7ff;
-    border-bottom: 1px solid #e2e8f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.jump-to-patch {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 30px;
-    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 10px;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.18);
-    letter-spacing: 1px;
-}
-.jump-to-index {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 30px;
-    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 10px;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.18);
-    letter-spacing: 1px;
-}
-.jump-to-patch:hover, .jump-to-index:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    opacity: 0.95;
-}
-.jump-icon {
-    font-size: 1.2rem;
-}
-@media (max-width:768px) {
-    .jump-to-patch, .jump-to-index {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
 }
 
 /* ========== 顶部教程跳转链接 专属美化样式 ========== */
@@ -470,56 +329,36 @@ body {
     margin-right: 8px;
     vertical-align: middle;
 }
-@media (max-width:768px) {
-    .guide-link {
-        font-size: 0.95rem;
-    }
-}
-/* 固定游戏名称列宽度 + 超长文字隐藏（核心样式） */
-.games-table th:first-child, /* 游戏名称表头 */
-.games-table td:first-child { /* 游戏名称列 */
-    min-width: 200px; /* 固定最小宽度，可根据需要调整 */
-    max-width: 300px; /* 固定最大宽度，超出部分隐藏 */
-    white-space: nowrap; /* 强制不换行 */
-    overflow: hidden; /* 超出部分隐藏 */
-    text-overflow: ellipsis; /* 显示省略号 */
+
+/* 固定游戏名称列宽度 + 超长文字隐藏 */
+.games-table th:first-child,
+.games-table td:first-child {
+    min-width: 200px;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* 保证其他列自适应，避免挤压 */
-.games-table th,
-.games-table td {
-    padding: 16px 22px;
-    text-align: left;
-    border-bottom: 1px solid #e2e8f0;
-    box-sizing: border-box; /* 确保padding不影响宽度计算 */
-}
-/* ========== 移动端表格横向滚动适配 - 核心代码 ========== */
+/* ========== 响应式适配 (只优化间距，不挤压内容) ========== */
 @media (max-width: 768px) {
-  /* 给表格父容器添加横向滚动，适配手机端 */
-  .games-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto; /* 核心属性：超出宽度自动显示横向滚动条 */
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; /* 苹果手机增加顺滑滚动效果 */
-    scrollbar-width: thin; /* 火狐浏览器滚动条瘦身，更美观 */
-  }
-  /* 让表格thead和tbody的宽度一致，防止错位 */
-  .games-table thead,
-  .games-table tbody,
-  .games-table tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
-  /* 优化移动端表格单元格内边距，防止内容太挤 */
-  .games-table th, .games-table td {
-    padding: 12px 15px !important;
-  }
-  /* 优化下载链接按钮在移动端的排版，一行最多2个，不挤 */
-  .links-container a {
-    margin: 0 6px 8px 0;
-    padding: 7px 10px;
-    font-size: 12px;
-  }
+    .header h1 { font-size: 1.9rem; }
+    .stats-bar { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .jump-to-index { padding: 12px 20px; font-size: 0.9rem; }
+    .guide-link { font-size: 0.95rem; }
+    .pagination { gap: 6px; }
+    .pagination-btn { padding: 6px 9px; font-size: 12px; }
+}
+
+/* ✅全局滚动条美化 - 细条样式 不突兀 */
+::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #3b82f6;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+    background-color: #f1f5f9;
 }
