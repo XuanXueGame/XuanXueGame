@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #2d3748;
+    line-height: 1.6;
+    padding: 20px;
+    scroll-behavior: smooth; /* 全局平滑滚动 */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+}
+
+.header {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white;
+    padding: 35px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.download-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-uc { background-image: url("https://www.xdgame.com/static/images/down/uc.png"); }
+.icon-bd { background-image: url("https://www.xdgame.com/static/images/down/bd.png"); }
+.icon-kuake { background-image: url("https://www.xdgame.com/static/images/down/kkp.png"); }
+.icon-xunlei { background-image: url("https://www.xdgame.com/static/images/down/xlp.png"); }
+
+.header h1 {
+    font-size: 2.3rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    letter-spacing: 0.5px;
+}
+
+.stats-bar {
+    background-color: #f8fafc;
+    padding: 18px 30px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.stat-item .count {
+    font-weight: bold;
+    color: #1d4ed8;
+    font-size: 1.15rem;
+}
+
+.search-container {
+    padding: 22px 30px;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #fefefe;
+}
+
+#search-input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.games-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header {
+    background-color: #1e3a8a;
+    color: white;
+}
+
+.games-table th,
+.games-table td {
+    padding: 16px 22px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.games-table th {
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.games-table tbody tr {
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.games-table tbody tr:hover {
+    background-color: #f8fafc;
+    transform: scale(1.002);
+}
+
+.game-name {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 1rem;
+}
+
+.date-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    border-radius: 24px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border: 1px solid #bfdbfe;
+}
+
+.links-container a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 16px;
+    margin: 0 8px 10px 0;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    border: none;
+}
+/* 各网盘差异化配色，视觉区分度高 */
+.links-container a:nth-child(1) { background-color: #0284c7; } /* UC网盘-天蓝色 */
+.links-container a:nth-child(2) { background-color: #16a34a; } /* 百度网盘-绿色 */
+.links-container a:nth-child(3) { background-color: #9333ea; } /* 夸克网盘-紫色 */
+.links-container a:nth-child(4) { background-color: #dc2626; } /* 迅雷网盘-红色 */
+/* 下载链接悬浮效果 */
+.links-container a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    opacity: 0.9;
+}
+
+.footer {
+    padding: 22px 30px;
+    text-align: center;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.no-results {
+    padding: 60px 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 1.15rem;
+    background-color: #fefefe;
+}
+
+/* 响应式设计 增强版 */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.9rem;
+    }
+    .stats-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .games-table th, .games-table td {
+        padding: 12px 15px;
+    }
+    .links-container a {
+        padding: 7px 12px;
+        font-size: 13px;
+    }
+    .pagination {
+        gap: 6px;
+    }
+    .pagination-btn {
+        padding: 6px 9px;
+        font-size: 12px;
+    }
+}
+
+.pagination {
+    padding: 22px 30px;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination-btn {
+    padding: 8px 14px;
+    background: #e2e8f0;
+    color: #1e40af;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.pagination-btn:disabled {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background: #1d4ed8;
+    color: white;
+    font-weight: bold;
+}
+
+.page-size-select {
+    padding: 7px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1e293b;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.page-size-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.page-info {
+    font-size: 13px;
+    color: #64748b;
+    margin-left: 12px;
+    min-width: 120px;
+}
+/* ========== 联机补丁跳转按钮 美化样式 ========== */
+.jump-btn-box {
+    padding: 16px 30px;
+    background-color: #f0f7ff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jump-to-patch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.18);
+    letter-spacing: 1px;
+}
+.jump-to-patch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.25);
+    opacity: 0.95;
+}
+.jump-icon {
+    font-size: 1.2rem;
+}
+/* 手机端适配 */
+@media (max-width:768px) {
+    .jump-to-patch {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+/* ========== 联机补丁跳转按钮 美化样式 ========== */
+.jump-btn-box {
+    padding: 16px 30px;
+    background-color: #f0f7ff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jump-to-patch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.18);
+    letter-spacing: 1px;
+}
+.jump-to-index {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.18);
+    letter-spacing: 1px;
+}
+/* 两个按钮统一悬浮动画效果 */
+.jump-to-patch:hover, .jump-to-index:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    opacity: 0.95;
+}
+.jump-icon {
+    font-size: 1.2rem;
+}
+/* 手机端自适应适配 */
+@media (max-width:768px) {
+    .jump-to-patch, .jump-to-index {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+/* ========== 联机补丁跳转按钮 美化样式 ========== */
+.jump-btn-box {
+    padding: 16px 30px;
+    background-color: #f0f7ff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jump-to-patch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.18);
+    letter-spacing: 1px;
+}
+.jump-to-index {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.18);
+    letter-spacing: 1px;
+}
+.jump-to-patch:hover, .jump-to-index:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    opacity: 0.95;
+}
+.jump-icon {
+    font-size: 1.2rem;
+}
+@media (max-width:768px) {
+    .jump-to-patch, .jump-to-index {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========== 顶部教程跳转链接 专属美化样式 ========== */
+.guide-link {
+    display: inline-block;
+    font-size: 1.15rem;
+    opacity: 0.98;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.guide-link:hover {
+    color: #f0f9ff;
+    opacity: 1;
+    transform: scale(1.02);
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+.guide-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+@media (max-width:768px) {
+    .guide-link {
+        font-size: 0.95rem;
+    }
+}
+/* 固定游戏名称列宽度 + 超长文字隐藏（核心样式） */
+.games-table th:first-child, /* 游戏名称表头 */
+.games-table td:first-child { /* 游戏名称列 */
+    min-width: 200px; /* 固定最小宽度，可根据需要调整 */
+    max-width: 300px; /* 固定最大宽度，超出部分隐藏 */
+    white-space: nowrap; /* 强制不换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 显示省略号 */
+}
+
+/* 保证其他列自适应，避免挤压 */
+.games-table th,
+.games-table td {
+    padding: 16px 22px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    box-sizing: border-box; /* 确保padding不影响宽度计算 */
+}

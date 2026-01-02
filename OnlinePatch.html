@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联机补丁</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>玄学游戏联机补丁列表</h1>
+        <a href="联机补丁使用教程.html" class="guide-link" target="_blank">
+            <i class="guide-icon">📖</i> 补丁使用教程 | 精选优质联机补丁 持续更新
+        </a>
+    </div>
+
+    <div class="jump-btn-box">
+        <a href="index.html" class="jump-to-index" target="_self">
+            <i class="jump-icon">⬅️</i> 返回主页 → 玄学游戏资源列表
+        </a>
+    </div>
+    <div class="jump-btn-box">
+        <a href="https://online-fix.me/" class="jump-to-patch" target="_blank">
+            <i class="jump-icon">🎮</i> 点击进入 → 游戏联机补丁官网
+        </a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="搜索游戏名称/游戏版本/更新日期... (支持关键词模糊搜索)">
+    </div>
+
+    <table class="games-table" id="gameTable">
+        <thead class="table-header">
+        <tr>
+            <th>补丁名称</th>
+            <th>对应游戏版本</th>
+            <th>更新日期</th>
+            <th>下载链接</th>
+        </tr>
+        </thead>
+        <tbody id="games-list">
+        <tr class="game-row">
+            <td><span class="game-name">无题手作：命名版/Untitled Hand Game: Titled Edition</span></td>
+            <td><span class="date-badge">适配全版本</span></td>
+            <td><span class="date-badge">2026-1-1</span></td>
+            <td>
+                <div class="links-container">
+                    <a href="https://drive.uc.cn/s/123456" target="_blank">
+                        <i class="download-icon icon-uc"></i>UC网盘
+                    </a>
+                    <a href="https://pan.baidu.com/s/123456" target="_blank">
+                        <i class="download-icon icon-bd"></i>百度网盘
+                    </a>
+                    <a href="https://pan.quark.cn/s/123456" target="_blank">
+                        <i class="download-icon icon-kuake"></i>夸克网盘
+                    </a>
+                    <a href="https://pan.xunlei.com/s/123456" target="_blank">
+                        <i class="download-icon icon-xunlei"></i>迅雷网盘
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr class="game-row">
+            <td><span class="game-name">联机补丁模板1</span></td>
+            <td><span class="date-badge">适配最新版</span></td>
+            <td><span class="date-badge">2026-1-1</span></td>
+            <td>
+                <div class="links-container">
+                    <a href="https://drive.uc.cn/s/123456" target="_blank">
+                        <i class="download-icon icon-uc"></i>UC网盘
+                    </a>
+                    <a href="https://pan.baidu.com/s/123456" target="_blank">
+                        <i class="download-icon icon-bd"></i>百度网盘
+                    </a>
+                    <a href="https://pan.quark.cn/s/123456" target="_blank">
+                        <i class="download-icon icon-kuake"></i>夸克网盘
+                    </a>
+                    <a href="https://pan.xunlei.com/s/123456" target="_blank">
+                        <i class="download-icon icon-xunlei"></i>迅雷网盘
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr class="game-row">
+            <td><span class="game-name">联机通用补丁</span></td>
+            <td><span class="date-badge">全游戏适配</span></td>
+            <td><span class="date-badge">2026-1-1</span></td>
+            <td>
+                <div class="links-container">
+                    <a href="https://drive.uc.cn/s/123456" target="_blank">
+                        <i class="download-icon icon-uc"></i>UC网盘
+                    </a>
+                    <a href="https://pan.baidu.com/s/123456" target="_blank">
+                        <i class="download-icon icon-bd"></i>百度网盘
+                    </a>
+                    <a href="https://pan.quark.cn/s/123456" target="_blank">
+                        <i class="download-icon icon-kuake"></i>夸克网盘
+                    </a>
+                    <a href="https://pan.xunlei.com/s/123456" target="_blank">
+                        <i class="download-icon icon-xunlei"></i>迅雷网盘
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination" id="pagination">
+        <button class="pagination-btn" id="firstPage">首页</button>
+        <button class="pagination-btn" id="prevPage">上一页</button>
+        <div id="pageNumbers"></div>
+        <button class="pagination-btn" id="nextPage">下一页</button>
+        <button class="pagination-btn" id="lastPage">尾页</button>
+        <select class="page-size-select" id="pageSizeSelect">
+            <option value="10">每页10条</option>
+            <option value="15" selected>每页15条</option>
+            <option value="20">每页20条</option>
+            <option value="30">每页30条</option>
+        </select>
+        <span class="page-info" id="pageInfo">第 1 页 / 共 1 页</span>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 玄学游戏联机补丁 | 提示：点击链接将在新窗口打开 | 链接失效请及时反馈，感谢支持</p>
+    </div>
+</div>
+<script src="patch-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联机补丁下载及使用教程 | Online Multiplayer Patch Tutorial</title>
+    <link rel="stylesheet" href="OnlinePatchTutorial.css">
+</head>
+<body>
+    
+    <button class="back-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ 回到顶部</button>
+    
+    <div class="img-modal" onclick="this.classList.remove('show')"><img src="" alt="教程大图"></div>
+
+    <div class="container">
+        <h1>联机补丁官网下载及使用教程</h1>
+      
+        <a href="OnlinePatch.html" class="patch-jump-btn" target="_blank">
+            <i>⬅️</i>  返回主页 → 游戏联机补丁专区
+        </a>
+               
+        <div class="catalog" id="catalog-box">
+            <h2>📚 教程目录</h2>
+            <ul>
+                <li><a href="#part1" onclick="openTargetPanel('part1')">玄学游戏联机补丁安装教程</a></li>
+                <li><a href="#part2" onclick="openTargetPanel('part2')">联机补丁官网下载及安装教程</a></li>
+                <li><a href="#part2-1" onclick="openTargetPanel('part2-1')">官网联机补丁注册教程</a></li>
+                <li><a href="#part2-2" onclick="openTargetPanel('part2-2')">官网联机补丁下载教程</a></li>
+                <li><a href="#part2-3" onclick="openTargetPanel('part2-3')">下载方式1（第三方网盘）</a></li>
+                <li><a href="#part2-4" onclick="openTargetPanel('part2-4')">下载方式2（官方服务器）</a></li>
+                <li><a href="#part2-5" onclick="openTargetPanel('part2-5')">官方联机补丁安装教程</a></li>
+            </ul>
+        </div>
+
+        <div class="collapse-item" id="part1">
+            <div class="collapse-title open" onclick="toggleCollapse(this)">
+                <span class="collapse-arrow">▶</span>
+                玄学游戏联机补丁安装教程
+            </div>
+            <div class="collapse-content show">
+                <ul>
+                    <li><span class="path-highlight">优先推荐方案，如果无法联机再尝试其余方案；</span></li>
+                </ul>
+                <div class="collapse-item">
+                    <div class="collapse-title open" onclick="toggleCollapse(this)">
+                        <span class="collapse-arrow">▶</span>
+                        安装教程
+                    </div>
+                    <div class="collapse-content show">
+                        <ul>
+                            <li>1. 提前下载游戏和联机补丁</li>
+                            <img src="images/1.png" class="img-view">
+                            <li>2. 解压游戏和联机补丁</li>
+                            <img src="images/2.png" class="img-view">
+                            <li>3. 进入联机补丁：Fix_Repair文件夹，全选文件并复制</li>
+                            <img src="images/3.png" class="img-view">
+                            <li>4. 打开游戏文件夹，将复制的补丁进行粘贴</li>
+                            <img src="images/4.png" class="img-view">
+                            <li>5. 提示替换或跳过文件选择：替换目标中的文件</li>
+                            <img src="images/5.png" class="img-view">
+                            <li>
+                                <p>6. 启动Steam，打开游戏即可联机（第一次启动会打开联机补丁官网，关闭即可）</p>
+                                <p class="path-highlight">注意：提示 <span class="red-text">Steam is not launched.</span> 或
+                                <span class="red-text">Steam is not running</span> 均是没有启动Steam导致，必须将<span class="red-text">Steam启动在后台</span>，已经启动Steam就需要<span class="red-text">重启Steam</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapse-item" id="part2">
+            <div class="collapse-title" onclick="toggleCollapse(this)">
+                <span class="collapse-arrow">▶</span>
+                联机补丁官网下载及安装教程
+            </div>
+            <div class="collapse-content">
+                <ul>
+                    <li><span class="path-highlight"><a href="https://online-fix.me/" target="_blank">点击进入补丁官网</a></span></li>
+                </ul>
+                
+                <div class="collapse-item" id="part2-1">
+                    <div class="collapse-title" onclick="toggleCollapse(this)">
+                        <span class="collapse-arrow">▶</span>
+                        官网联机补丁注册教程
+                    </div>
+                    <div class="collapse-content">
+                        <ul>
+                            <li>进入补丁官网 已有账号直接登录即可 没有账号点击注册 </li>
+                            <li><a href="#part2-2" onclick="openTargetPanel('part2-2')">已有账号点击跳过注册教程</a></li>
+                            <img src="images/6.png" class="img-view">
+                            <li>1. 填写对应信息注册 <span class="red-text">昵称和密码不填写会自动生成，推荐自己填写</span> </li>
+                            <img src="images/7.png" class="img-view">
+                            <li>2. 点击提交后显示自动生成的昵称和密码或填写的账号和密码</li>
+                            <li>&nbsp;&nbsp;&nbsp;点击“是”会自动登录</li>
+                            <img src="images/8.png" class="img-view">
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collapse-item" id="part2-2">
+                    <div class="collapse-title" onclick="toggleCollapse(this)">
+                        <span class="collapse-arrow">▶</span>
+                        官网联机补丁下载教程
+                    </div>
+                    <div class="collapse-content">
+                        <ul>
+                            <li>进入补丁官网，在上方搜索框搜索游戏名称 <span class="red-text">只支持英文名</span></li>
+                            <img src="images/9.png" class="img-view">
+                            <li>找到对应游戏图标 点击进去</li>
+                            <img src="images/10.png" class="img-view">
+                            <li><a href="#part2-3" onclick="openTargetPanel('part2-3')">下载方式1 </a>通过第三方网盘进行下载</li>
+                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;优点：可以下载已经打入联机补丁的游戏本体</li>
+                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;缺点：个别补丁没有，网站不稳定</li>
+                            <li><a href="#part2-4" onclick="openTargetPanel('part2-4')">下载方式2 </a>通过官方服务器进行下载</li>
+                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;优点：补丁全，操作简单</li>
+                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;缺点：不能下载打入联机补丁的游戏本体，下载速度慢（可以用IDM下载）</li>
+                            <img src="images/11.png" class="img-view">
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collapse-item" id="part2-3">
+                    <div class="collapse-title" onclick="toggleCollapse(this)">
+                        <span class="collapse-arrow">▶</span>
+                        下载方式1（第三方网盘）
+                    </div>
+                    <div class="collapse-content">
+                        <ul>
+                            <li>进入下载网盘选择Gofile&nbsp;&nbsp;&nbsp;&nbsp;<span class="red-text">如没有Gofile请选择<a href="#part2-4" onclick="openTargetPanel('part2-4')">下载方式2</a></span></li>
+                            <img src="images/12.png" class="img-view">
+                            <li><span class="red-text">游戏名称_Fix_Repair_Steam_XXX</span>为联机补丁</li>
+                            <li><span class="red-text">游戏名称.游戏版本-OFME</span>为游戏本体（内置联机补丁）</li>
+                            <img src="images/13.png" class="img-view">
+                            <li>点击<span class="red-text">download</span>下载即可</li>
+                            <img src="images/14.png" class="img-view">
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collapse-item" id="part2-4">
+                    <div class="collapse-title" onclick="toggleCollapse(this)">
+                        <span class="collapse-arrow">▶</span>
+                        下载方式2（官方服务器）
+                    </div>
+                    <div class="collapse-content">
+                        <ul>
+                            <li>进入官方服务器点击<span class="red-text">Fix_Repair</span>进入联机补丁下载页面</li>
+                            <li><span class="red-text">PS：官方服务器禁止普通用户下载内置联机补丁的游戏</span></li>
+                            <img src="images/15.png" class="img-view">
+                            <li>点击<span class="red-text">游戏名称_Fix_Repair_Steam_XXX</span>就能下载联机补丁</li>
+                            <img src="images/16.png" class="img-view">
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collapse-item" id="part2-5">
+                    <div class="collapse-title" onclick="toggleCollapse(this)">
+                        <span class="collapse-arrow">▶</span>
+                        官方联机补丁安装教程
+                    </div>
+                    <div class="collapse-content">
+                        <ul>
+                            <li>将下载完成的联机补丁放在游戏根目录解压即可</li>
+                            <li>解压密码均为：<span class="red-text">online-fix.me</span></li>
+                            <li><span class="red-text">PS：解压方式选择解压到当前文件</span></li>
+                            <img src="images/17.png" class="img-view">
+                            <li>提示替换或跳过文件选择：替换全部</li>
+                            <li><span class="red-text">PS：如未提示可能选择的不是解压到当前文件或联机补丁嵌套了文件夹</span></li>
+                            <img src="images/18.png" class="img-view">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCollapse(titleElement) {
+            titleElement.classList.toggle('open');
+            const contentElement = titleElement.nextElementSibling;
+            contentElement.classList.toggle('show');
+        }
+
+        function openTargetPanel(targetId) {
+            const targetPanel = document.getElementById(targetId);
+            if(!targetPanel) return;
+            const allTitle = targetPanel.querySelectorAll('.collapse-title');
+            allTitle.forEach(title => {
+                title.classList.add('open');
+                title.nextElementSibling.classList.add('show');
+            });
+            let parentPanel = targetPanel.closest('.collapse-content');
+            while(parentPanel) {
+                const parentTitle = parentPanel.previousElementSibling;
+                if(parentTitle && parentTitle.classList.contains('collapse-title')){
+                    parentTitle.classList.add('open');
+                    parentPanel.classList.add('show');
+                }
+                parentPanel = parentPanel.parentElement.closest('.collapse-content');
+            }
+        }
+
+        const imgViewList = document.querySelectorAll('.img-view');
+        const imgModal = document.querySelector('.img-modal');
+        const modalImg = imgModal.querySelector('img');
+        imgViewList.forEach(img => {
+            img.onclick = function(e) {
+                e.stopPropagation();
+                modalImg.src = this.src;
+                imgModal.classList.add('show');
+            }
+        });
+    </script>
+</body>
+</html>
