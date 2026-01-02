@@ -366,7 +366,7 @@ body {
 }
 
 /* ========== 顶部教程跳转链接 专属美化样式 ========== */
-.guide-link {
+.guide-link , #WT2{
     display: inline-block;
     font-size: 1.15rem;
     opacity: 0.98;
