@@ -270,7 +270,7 @@ body {
     min-width: 120px;
 }
 
-/* ========== 联机补丁跳转按钮 美化样式 ========== */
+/* ========== 联机补丁跳转按钮 美化样式 ==========
 .jump-btn-box {
     padding: 16px 30px;
     background-color: #f0f7ff;
@@ -304,6 +304,65 @@ body {
 }
 .jump-icon {
     font-size: 1.2rem;
+} */
+ /* ========== 联机补丁跳转按钮 美化样式 ========== */
+.jump-btn-box {
+    padding: 16px 30px;
+    background-color: #f0f7ff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jump-to-patch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.18);
+    letter-spacing: 1px;
+}
+.jump-to-index {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.18);
+    letter-spacing: 1px;
+}
+.jump-to-patch:hover, .jump-to-index:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    opacity: 0.95;
+}
+.jump-icon {
+    font-size: 1.2rem;
+}
+@media (max-width:768px) {
+    .jump-to-patch, .jump-to-index {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 /* ========== 顶部教程跳转链接 专属美化样式 ========== */
