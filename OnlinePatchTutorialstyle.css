@@ -119,6 +119,12 @@ h1 {
     margin: 3px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+#WT1 {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin: 0 auto; /* 核心：水平居中 */
+}
 
 /* 关键词标红高亮 醒目不刺眼 */
 .red-text {
