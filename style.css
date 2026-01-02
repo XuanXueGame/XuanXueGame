@@ -493,3 +493,33 @@ body {
     border-bottom: 1px solid #e2e8f0;
     box-sizing: border-box; /* 确保padding不影响宽度计算 */
 }
+/* ========== 移动端表格横向滚动适配 - 核心代码 ========== */
+@media (max-width: 768px) {
+  /* 给表格父容器添加横向滚动，适配手机端 */
+  .games-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto; /* 核心属性：超出宽度自动显示横向滚动条 */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* 苹果手机增加顺滑滚动效果 */
+    scrollbar-width: thin; /* 火狐浏览器滚动条瘦身，更美观 */
+  }
+  /* 让表格thead和tbody的宽度一致，防止错位 */
+  .games-table thead,
+  .games-table tbody,
+  .games-table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  /* 优化移动端表格单元格内边距，防止内容太挤 */
+  .games-table th, .games-table td {
+    padding: 12px 15px !important;
+  }
+  /* 优化下载链接按钮在移动端的排版，一行最多2个，不挤 */
+  .links-container a {
+    margin: 0 6px 8px 0;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}
