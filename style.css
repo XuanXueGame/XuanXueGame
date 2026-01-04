@@ -98,8 +98,8 @@ body {
 
 #search-input:focus {
     outline: none;
-	border-color: #3b82f6;
-	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 /* ✅核心样式：表格滚动容器 重中之重 */
@@ -270,42 +270,7 @@ body {
     min-width: 120px;
 }
 
-/* ========== 联机补丁跳转按钮 美化样式 ==========
-.jump-btn-box {
-    padding: 16px 30px;
-    background-color: #f0f7ff;
-    border-bottom: 1px solid #e2e8f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.jump-to-index {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 30px;
-    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 10px;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.18);
-    letter-spacing: 1px;
-}
-.jump-to-index:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    opacity: 0.95;
-}
-.jump-icon {
-    font-size: 1.2rem;
-} */
- /* ========== 联机补丁跳转按钮 美化样式 ========== */
+/* ========== 联机补丁跳转按钮 美化样式 ========== */
 .jump-btn-box {
     padding: 16px 30px;
     background-color: #f0f7ff;
@@ -358,12 +323,6 @@ body {
 .jump-icon {
     font-size: 1.2rem;
 }
-@media (max-width:768px) {
-    .jump-to-patch, .jump-to-index {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-}
 
 /* ========== 顶部教程跳转链接 专属美化样式 ========== */
 .guide-link , #WT2{
@@ -399,11 +358,20 @@ body {
     text-overflow: ellipsis;
 }
 
+/* ✅ 新增：搜索关键词高亮样式 */
+.mark-text {
+    color: #dc2626;
+    font-weight: bold;
+    background-color: #fff3e0;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
 /* ========== 响应式适配 (只优化间距，不挤压内容) ========== */
 @media (max-width: 768px) {
     .header h1 { font-size: 1.9rem; }
     .stats-bar { flex-direction: column; align-items: flex-start; gap: 15px; }
-    .jump-to-index { padding: 12px 20px; font-size: 0.9rem; }
+    .jump-to-patch, .jump-to-index { padding: 12px 20px; font-size: 0.9rem; }
     .guide-link { font-size: 0.95rem; }
     .pagination { gap: 6px; }
     .pagination-btn { padding: 6px 9px; font-size: 12px; }
@@ -420,4 +388,19 @@ body {
 }
 ::-webkit-scrollbar-track {
     background-color: #f1f5f9;
+}
+/* 分页按钮 active 状态强化 */
+.pagination-btn.active {
+    background-color: #1d4ed8 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+/* 分页按钮禁用状态强化 */
+.pagination-btn:disabled {
+    background-color: #f1f5f9 !important;
+    color: #94a3b8 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
