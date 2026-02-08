@@ -4,6 +4,7 @@
     const CONST = {
         PAGE_SIZE_DEFAULT: 15,
         EMPTY_TIP: '<tr class="no-results"><td colspan="4">🔍 没有找到匹配的游戏，请更换关键词重试</td></tr>',
+        PASSWORD: 'XuanXueGame', // 新增：游戏密码常量
         SELECTOR: {
             gameList: '#games-list',
             searchInput: '#search-input',
@@ -18,7 +19,8 @@
             ucCount: '#ucCount',
             bdCount: '#bdCount',
             kuakeCount: '#kuakeCount',
-            xunleiCount: '#xunleiCount'
+            xunleiCount: '#xunleiCount',
+            copyPasswordBtn: '.jump-to-index' // 新增：复制密码按钮选择器
         }
     };
 
@@ -29,6 +31,47 @@
         pageSize: CONST.PAGE_SIZE_DEFAULT, // 每页条数
         tbody: document.querySelector(CONST.SELECTOR.gameList)
     };
+
+    // ===================== 新增：复制密码功能 =====================
+    function copyPassword() {
+        // 使用 Clipboard API 复制文本
+        navigator.clipboard.writeText(CONST.PASSWORD)
+            .then(() => {
+                // 复制成功提示
+                const btn = document.querySelector(CONST.SELECTOR.copyPasswordBtn);
+                const originalText = btn.innerHTML;
+                // 修改按钮文本提示成功
+                btn.innerHTML = '<i class="jump-icon">✅</i> 复制成功！密码：XuanXueGame  严格区分大小写';
+                btn.style.background = 'linear-gradient(135deg, #16a34a 0%, #22c55e 100%)';
+                
+                // 2秒后恢复原文本和样式
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'linear-gradient(135deg, #9333ea 0%, #a855f7 100%)';
+                }, 2000);
+            })
+            .catch(err => {
+                // 兼容旧浏览器的备用方案
+                const textArea = document.createElement('textarea');
+                textArea.value = CONST.PASSWORD;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // 提示复制成功
+                const btn = document.querySelector(CONST.SELECTOR.copyPasswordBtn);
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="jump-icon">✅</i> 复制成功！密码：XuanXueGame  严格区分大小写';
+                btn.style.background = 'linear-gradient(135deg, #16a34a 0%, #22c55e 100%)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'linear-gradient(135deg, #9333ea 0%, #a855f7 100%)';
+                }, 2000);
+                console.error('复制失败:', err);
+            });
+    }
 
     // ===================== 1. 初始化游戏数据 - 读取DOM并格式化缓存 =====================
     function initGameData() {
@@ -160,6 +203,15 @@
     function bindEvents() {
         const searchInput = document.querySelector(CONST.SELECTOR.searchInput);
         const pageSizeSelect = document.querySelector(CONST.SELECTOR.pageSizeSelect);
+        const copyBtn = document.querySelector(CONST.SELECTOR.copyPasswordBtn);
+
+        // 新增：绑定复制密码按钮事件
+        if (copyBtn) {
+            copyBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // 阻止默认跳转行为
+                copyPassword(); // 执行复制功能
+            });
+        }
 
         // 搜索事件：输入+回车均可触发，输入后重置页码为1
         searchInput.addEventListener('input', () => {
