@@ -165,7 +165,7 @@ h1 {
     box-shadow: 0 6px 15px rgba(255,107,107,0.2);
 }
 
-/* ===================== 教程目录样式 【美化升级】===================== */
+/* ===================== 教程目录样式 【恢复箭头+层级】===================== */
 .catalog {
     background: linear-gradient(145deg, #252526, #2c2c2c);
     border-radius: 10px;
@@ -191,11 +191,33 @@ h1 {
     list-style: none !important;
 }
 
-.catalog li {
+/* 目录父项 - 带箭头 */
+.catalog-parent > a::before {
+    content: "▶";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    color: #ff6b6b;
+    transition: transform 0.3s ease;
+}
+/* 展开时箭头旋转 */
+.catalog-parent.open > a::before {
+    transform: rotate(90deg);
+}
+
+/* 目录层级缩进 */
+.catalog-level-1 li {
     margin: 10px 0;
     list-style: none !important;
     padding: 6px 0;
     border-bottom: 1px dashed #333;
+}
+.catalog-level-2 {
+    margin-left: 25px; /* 二级目录缩进 */
+}
+.catalog-level-3 {
+    margin-left: 50px; /* 三级目录缩进 */
 }
 
 .catalog a {
@@ -205,6 +227,8 @@ h1 {
     transition: all 0.25s ease;
     padding: 3px 5px;
     border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .catalog a:hover {
@@ -212,6 +236,14 @@ h1 {
     text-decoration: none;
     background: rgba(255,107,107,0.1);
     padding-left: 8px;
+}
+
+/* 教程目录子层级默认隐藏 */
+.catalog-level-2, .catalog-level-3 {
+    display: none;
+}
+.catalog-level-2.show, .catalog-level-3.show {
+    display: block;
 }
 
 /* ===================== 全局链接样式优化 ===================== */
@@ -303,75 +335,4 @@ a:hover {
 @keyframes modalFade {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-/* 目录层级样式 - 适配原有美化风格 */
-.catalog-level-2, .catalog-level-3 {
-    display: none; /* 默认折叠子目录 */
-    padding-left: 20px !important; /* 二级/三级目录缩进 */
-    margin-top: 8px !important;
-}
-
-.catalog-level-2.show, .catalog-level-3.show {
-    display: block !important; /* 展开时显示 */
-}
-
-/* 父目录样式（带子项的目录项） */
-.catalog-parent > a {
-    position: relative;
-    padding-right: 20px !important;
-}
-
-/* 父目录箭头标识（适配原有红色系风格） */
-.catalog-parent > a::after {
-    content: "▶";
-    position: absolute;
-    right: 0;
-    top: 2px;
-    font-size: 12px;
-    color: #ff6b6b;
-    transition: transform 0.2s ease;
-}
-
-.catalog-parent > a:hover::after {
-    color: #ff8080;
-}
-
-/* 展开时箭头旋转 */
-.catalog-parent > ul.show + a::after,
-.catalog-parent > a + ul.show::after {
-    transform: rotate(90deg);
-}
-
-/* 二级/三级目录样式区分 */
-.catalog-level-2 li {
-    border-bottom: 1px dashed #444 !important;
-    margin: 8px 0 !important;
-    padding: 4px 0 !important;
-}
-
-.catalog-level-3 li {
-    border-bottom: 1px dashed #555 !important;
-    margin: 6px 0 !important;
-    padding: 2px 0 !important;
-}
-
-.catalog-level-2 a {
-    font-size: 15px !important;
-    color: #d4d4d4 !important;
-}
-
-.catalog-level-3 a {
-    font-size: 14px !important;
-    color: #b4b4b4 !important;
-}
-
-.catalog-level-2 a:hover {
-    color: #ff7777 !important;
-    padding-left: 5px !important;
-}
-
-.catalog-level-3 a:hover {
-    color: #ff9999 !important;
-    padding-left: 5px !important;
 }

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>联机补丁下载及使用教程 | Online Multiplayer Patch Tutorial</title>
     <link rel="stylesheet" href="OnlinePatchTutorialstyle.css">
 </head>
+
 <body>
-    
+
     <button class="back-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ 回到顶部</button>
-    
+
     <div class="img-modal" onclick="this.classList.remove('show')"><img src="" alt="教程大图"></div>
 
     <div class="container">
         <h1>联机补丁官网下载及使用教程</h1>
-      
+
         <a href="OnlinePatch.html" class="patch-jump-btn" target="_blank">
-            <i>⬅️</i>  返回主页 → 游戏联机补丁专区
+            <i>⬅️</i> 返回主页 → 游戏联机补丁专区
         </a>
         <span class="path-highlight" id="WT1">本网站采用免费部署 图片加载较慢 请耐心等待 敬请谅解</span>
-               
+
         <!-- 调整后的目录结构 -->
         <div class="catalog" id="catalog-box">
             <h2>📚 教程目录</h2>
@@ -82,7 +84,10 @@
                             <li>
                                 <p>6. 启动Steam，打开游戏即可联机<span class="red-text">（第一次启动会打开联机补丁官网，关闭即可）</span></p>
                                 <p class="path-highlight">注意：提示 <span class="red-text">Steam is not launched.</span> 或
-                                <span class="red-text">Steam is not running</span> 均是没有启动Steam导致，必须将<span class="red-text">Steam启动在后台</span>，已经启动Steam就需要<span class="red-text">重启Steam</span></p>
+                                    <span class="red-text">Steam is not running</span> 均是没有启动Steam导致，必须将<span
+                                        class="red-text">Steam启动在后台</span>，已经启动Steam就需要<span
+                                        class="red-text">重启Steam</span>
+                                </p>
                             </li>
                         </ul>
                     </div>
@@ -97,9 +102,10 @@
             </div>
             <div class="collapse-content">
                 <ul>
-                    <li><span class="path-highlight"><a href="https://online-fix.me/" target="_blank">点击进入补丁官网</a></span></li>
+                    <li><span class="path-highlight"><a href="https://online-fix.me/"
+                                target="_blank">点击进入补丁官网</a></span></li>
                 </ul>
-                
+
                 <div class="collapse-item" id="part2-1">
                     <div class="collapse-title" onclick="toggleCollapse(this)">
                         <span class="collapse-arrow">▶</span>
@@ -118,7 +124,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="collapse-item" id="part2-2">
                     <div class="collapse-title" onclick="toggleCollapse(this)">
                         <span class="collapse-arrow">▶</span>
@@ -140,7 +146,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="collapse-item" id="part2-3">
                     <div class="collapse-title" onclick="toggleCollapse(this)">
                         <span class="collapse-arrow">▶</span>
@@ -148,7 +154,8 @@
                     </div>
                     <div class="collapse-content">
                         <ul>
-                            <li>进入下载网盘选择Gofile&nbsp;&nbsp;&nbsp;&nbsp;<span class="red-text">如没有Gofile请选择<a href="#part2-4" onclick="openTargetPanel('part2-4')">下载方式2</a></span></li>
+                            <li>进入下载网盘选择Gofile&nbsp;&nbsp;&nbsp;&nbsp;<span class="red-text">如没有Gofile请选择<a
+                                        href="#part2-4" onclick="openTargetPanel('part2-4')">下载方式2</a></span></li>
                             <img src="images/12.png" class="img-view">
                             <li><span class="red-text">游戏名称_Fix_Repair_Steam_XXX</span>为联机补丁</li>
                             <li><span class="red-text">游戏名称.游戏版本-OFME</span>为游戏本体（内置联机补丁）</li>
@@ -158,7 +165,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="collapse-item" id="part2-4">
                     <div class="collapse-title" onclick="toggleCollapse(this)">
                         <span class="collapse-arrow">▶</span>
@@ -174,7 +181,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="collapse-item" id="part2-5">
                     <div class="collapse-title" onclick="toggleCollapse(this)">
                         <span class="collapse-arrow">▶</span>
@@ -205,16 +212,16 @@
 
         function openTargetPanel(targetId) {
             const targetPanel = document.getElementById(targetId);
-            if(!targetPanel) return;
+            if (!targetPanel) return;
             const allTitle = targetPanel.querySelectorAll('.collapse-title');
             allTitle.forEach(title => {
                 title.classList.add('open');
                 title.nextElementSibling.classList.add('show');
             });
             let parentPanel = targetPanel.closest('.collapse-content');
-            while(parentPanel) {
+            while (parentPanel) {
                 const parentTitle = parentPanel.previousElementSibling;
-                if(parentTitle && parentTitle.classList.contains('collapse-title')){
+                if (parentTitle && parentTitle.classList.contains('collapse-title')) {
                     parentTitle.classList.add('open');
                     parentPanel.classList.add('show');
                 }
@@ -226,27 +233,26 @@
         const imgModal = document.querySelector('.img-modal');
         const modalImg = imgModal.querySelector('img');
         imgViewList.forEach(img => {
-            img.onclick = function(e) {
+            img.onclick = function (e) {
                 e.stopPropagation();
                 modalImg.src = this.src;
                 imgModal.classList.add('show');
             }
         });
 
-        // 目录层级展开/折叠交互（适配新结构）
+        // 目录层级展开/折叠交互（恢复箭头+层级）
         document.querySelectorAll('.catalog-parent').forEach(parent => {
-            // 点击父项时展开/折叠子目录
-            parent.querySelector('a').addEventListener('click', function(e) {
+            // 点击父项时展开/折叠子目录 + 切换箭头旋转
+            parent.querySelector('a').addEventListener('click', function (e) {
                 const subMenu = this.nextElementSibling;
-                if(subMenu) {
+                if (subMenu) {
                     subMenu.classList.toggle('show');
+                    parent.classList.toggle('open'); // 添加/移除open类，控制箭头旋转
                     e.preventDefault(); // 阻止默认锚点跳转（如需保留锚点可删除此行）
                 }
             });
-            // 初始展开所有子目录（如需默认折叠可删除此段）
-            const subMenu = parent.querySelector('ul');
-            if(subMenu) subMenu.classList.add('show');
         });
     </script>
 </body>
+
 </html>
