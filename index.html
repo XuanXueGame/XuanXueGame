@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>玄学游戏</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="container">
-    <div class="header">
-        <h1>玄学游戏资源列表</h1>
-        <p>更新时间：2026年1月4日20时 | 精选优质资源 持续更新</p>
-    </div>
+    <div class="container">
+        <div class="header">
+            <h1>玄学游戏资源列表</h1>
+            <p>更新时间：2026年1月4日20时 | 精选优质资源 持续更新</p>
+        </div>
 
-    <div class="stats-bar">
-        <div class="stat-item">
-            <span>总游戏数：</span>
-            <span class="count" id="totalGameCount">0</span>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span>总游戏数：</span>
+                <span class="count" id="totalGameCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span>夸克网盘：</span>
+                <span class="count" id="kuakeCount">0</span> 个链接
+            </div>
+            <div class="stat-item">
+                <span>百度网盘：</span>
+                <span class="count" id="bdCount">0</span> 个链接
+            </div>
+            <div class="stat-item">
+                <span>迅雷网盘：</span>
+                <span class="count" id="xunleiCount">0</span> 个链接
+            </div>
+            <div class="stat-item">
+                <span>UC网盘：</span>
+                <span class="count" id="ucCount">0</span> 个链接
+            </div>
         </div>
-        <div class="stat-item">
-            <span>夸克网盘：</span>
-            <span class="count" id="kuakeCount">0</span> 个链接
-        </div>
-        <div class="stat-item">
-            <span>百度网盘：</span>
-            <span class="count" id="bdCount">0</span> 个链接
-        </div>
-        <div class="stat-item">
-            <span>迅雷网盘：</span>
-            <span class="count" id="xunleiCount">0</span> 个链接
-        </div>
-        <div class="stat-item">
-            <span>UC网盘：</span>
-            <span class="count" id="ucCount">0</span> 个链接
-        </div>
-    </div>
 
-    <div class="jump-btn-box">
-        <a href="OnlinePatch.html" class="jump-to-patch" target="_blank">
-            <i class="jump-icon">🎮</i> 点击进入 → 游戏联机补丁专区
-        </a>
-    </div>
-    <div class="jump-btn-box">
-        <a href="index.html" class="jump-to-index" target="_self">
-            <i class="jump-icon">📋</i> 点击复制 → 启动游戏密码：XuanXueGame  严格区分大小写
-        </a>
-    </div>
+        <div class="jump-btn-box">
+            <a href="OnlinePatch.html" class="jump-to-patch" target="_blank">
+                <i class="jump-icon">🎮</i> 点击进入 → 游戏联机补丁专区
+            </a>
+        </div>
 
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="搜索游戏名称/版本/日期... (支持关键词模糊搜索)">
-    </div>
+        <div class="double-btn-row">
+            <div class="jump-btn-box">
+                <a href="index.html" class="jump-to-index" target="_self">
+                    <i class="jump-icon">📋</i> 点击复制 → 密码：XuanXueGame 严格区分大小写
+                </a>
+            </div>
+            <div class="jump-btn-box">
+                <a href="https://qm.qq.com/q/5OukErLvQA" class="jump-to-patch" target="_blank">
+                    <i class="jump-icon"></i> 链接失效反馈，疑难解答 ⬅️ 点击咨询
+                </a>
+            </div>
+        </div>
 
-    <div class="table-scroll-wrapper">
-        <table class="games-table" id="gameTable">
-            <thead class="table-header">
-            <tr>
-                <th>游戏名称</th>
-                <th>更新版本</th>
-                <th>更新日期</th>
-                <th>下载链接</th>
-            </tr>
-            </thead>
-            <tbody id="games-list">
-            <!--            模板-->
-            <!--<tr class="game-row">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="搜索游戏名称/版本/日期... (支持关键词模糊搜索)">
+        </div>
+
+        <div class="table-scroll-wrapper">
+            <table class="games-table" id="gameTable">
+                <thead class="table-header">
+                    <tr>
+                        <th>游戏名称</th>
+                        <th>更新版本</th>
+                        <th>更新日期</th>
+                        <th>下载链接</th>
+                    </tr>
+                </thead>
+                <tbody id="games-list">
+                    <!--            模板-->
+                    <!--<tr class="game-row">
                 <td><span class="game-name">模板</span></td>
                 <td><span class="date-badge">游戏版本</span></td>
                 <td><span class="date-badge">更新日期</span></td>
@@ -76,324 +86,30 @@
                     </div>
                 </td>
             </tr>-->
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="game-row">
-                <td><span class="game-name">模板</span></td>
-                <td><span class="date-badge">适配全版本</span></td>
-                <td><span class="date-badge">2026-1-1</span></td>
-                <td>
-                    <div class="links-container">
-                        <a href="https://drive.uc.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-uc"></i>UC网盘
-                        </a>
-                        <a href="https://pan.baidu.com/s/123456" target="_blank">
-                            <i class="download-icon icon-bd"></i>百度网盘
-                        </a>
-                        <a href="https://pan.quark.cn/s/123456" target="_blank">
-                            <i class="download-icon icon-kuake"></i>夸克网盘
-                        </a>
-                        <a href="https://pan.xunlei.com/s/123456" target="_blank">
-                            <i class="download-icon icon-xunlei"></i>迅雷网盘
-                        </a>
-                    </div>
-                </td>
-            </tr>
+                </tbody>
+            </table>
+        </div>
 
-            </tbody>
-        </table>
-    </div>
+        <div class="pagination" id="pagination">
+            <button class="pagination-btn" id="firstPage">首页</button>
+            <button class="pagination-btn" id="prevPage">上一页</button>
+            <div id="pageNumbers"></div>
+            <button class="pagination-btn" id="nextPage">下一页</button>
+            <button class="pagination-btn" id="lastPage">尾页</button>
+            <select class="page-size-select" id="pageSizeSelect">
+                <option value="10">每页10条</option>
+                <option value="15" selected>每页15条</option>
+                <option value="20">每页20条</option>
+                <option value="30">每页30条</option>
+            </select>
+            <span class="page-info" id="pageInfo">第 1 页 / 共 1 页</span>
+        </div>
 
-    <div class="pagination" id="pagination">
-        <button class="pagination-btn" id="firstPage">首页</button>
-        <button class="pagination-btn" id="prevPage">上一页</button>
-        <div id="pageNumbers"></div>
-        <button class="pagination-btn" id="nextPage">下一页</button>
-        <button class="pagination-btn" id="lastPage">尾页</button>
-        <select class="page-size-select" id="pageSizeSelect">
-            <option value="10">每页10条</option>
-            <option value="15" selected>每页15条</option>
-            <option value="20">每页20条</option>
-            <option value="30">每页30条</option>
-        </select>
-        <span class="page-info" id="pageInfo">第 1 页 / 共 1 页</span>
+        <div class="footer">
+            <p>© 2025 玄学游戏资源 | 提示：点击链接将在新窗口打开 | 链接失效请及时反馈，感谢支持</p>
+        </div>
     </div>
-
-    <div class="footer">
-        <p>© 2025 玄学游戏资源 | 提示：点击链接将在新窗口打开 | 链接失效请及时反馈，感谢支持</p>
-    </div>
-</div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

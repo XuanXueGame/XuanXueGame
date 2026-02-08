@@ -404,3 +404,25 @@ body {
     transform: none !important;
     box-shadow: none !important;
 }
+
+/* 仅控制第二、第三个按钮的并排容器 */
+.double-btn-row {
+    display: flex;
+    gap: 20px; /* 两个按钮之间的间距，可根据需要调整 */
+    padding: 16px 30px;
+    background-color: #f0f7ff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* 让第二、第三个按钮容器平分父容器宽度，不改变按钮本身宽高 */
+.double-btn-row .jump-btn-box {
+    flex: 1;
+}
+
+/* 响应式适配：移动端自动恢复垂直排列 */
+@media (max-width: 768px) {
+    .double-btn-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
