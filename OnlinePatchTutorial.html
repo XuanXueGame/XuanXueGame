@@ -20,19 +20,39 @@
         </a>
         <span class="path-highlight" id="WT1">本网站采用免费部署 图片加载较慢 请耐心等待 敬请谅解</span>
                
+        <!-- 调整后的目录结构 -->
         <div class="catalog" id="catalog-box">
             <h2>📚 教程目录</h2>
-            <ul>
-                <li><a href="#part1" onclick="openTargetPanel('part1')">玄学游戏联机补丁安装教程</a></li>
-                <li><a href="#part2" onclick="openTargetPanel('part2')">联机补丁官网下载及安装教程</a></li>
-                <li><a href="#part2-1" onclick="openTargetPanel('part2-1')">官网联机补丁注册教程</a></li>
-                <li><a href="#part2-2" onclick="openTargetPanel('part2-2')">官网联机补丁下载教程</a></li>
-                <li><a href="#part2-3" onclick="openTargetPanel('part2-3')">下载方式1（第三方网盘）</a></li>
-                <li><a href="#part2-4" onclick="openTargetPanel('part2-4')">下载方式2（官方服务器）</a></li>
-                <li><a href="#part2-5" onclick="openTargetPanel('part2-5')">官方联机补丁安装教程</a></li>
+            <ul class="catalog-level-1">
+                <li>
+                    <a href="#part1" onclick="openTargetPanel('part1')">玄学游戏联机补丁安装教程</a>
+                </li>
+                <li class="catalog-parent">
+                    <a href="#part2" onclick="openTargetPanel('part2')">联机补丁官网下载及安装教程</a>
+                    <ul class="catalog-level-2">
+                        <li>
+                            <a href="#part2-1" onclick="openTargetPanel('part2-1')">官网联机补丁注册教程</a>
+                        </li>
+                        <li class="catalog-parent">
+                            <a href="#part2-2" onclick="openTargetPanel('part2-2')">官网联机补丁下载教程</a>
+                            <ul class="catalog-level-3">
+                                <li>
+                                    <a href="#part2-3" onclick="openTargetPanel('part2-3')">下载方式1（第三方网盘）</a>
+                                </li>
+                                <li>
+                                    <a href="#part2-4" onclick="openTargetPanel('part2-4')">下载方式2（官方服务器）</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#part2-5" onclick="openTargetPanel('part2-5')">官方联机补丁安装教程</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
+        <!-- 以下原有折叠面板代码保持不变 -->
         <div class="collapse-item" id="part1">
             <div class="collapse-title open" onclick="toggleCollapse(this)">
                 <span class="collapse-arrow">▶</span>
@@ -211,6 +231,21 @@
                 modalImg.src = this.src;
                 imgModal.classList.add('show');
             }
+        });
+
+        // 目录层级展开/折叠交互（适配新结构）
+        document.querySelectorAll('.catalog-parent').forEach(parent => {
+            // 点击父项时展开/折叠子目录
+            parent.querySelector('a').addEventListener('click', function(e) {
+                const subMenu = this.nextElementSibling;
+                if(subMenu) {
+                    subMenu.classList.toggle('show');
+                    e.preventDefault(); // 阻止默认锚点跳转（如需保留锚点可删除此行）
+                }
+            });
+            // 初始展开所有子目录（如需默认折叠可删除此段）
+            const subMenu = parent.querySelector('ul');
+            if(subMenu) subMenu.classList.add('show');
         });
     </script>
 </body>
