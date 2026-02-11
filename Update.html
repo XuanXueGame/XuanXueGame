@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玄学游戏 | 升级补丁使用教程</title>
+    <style>
+        /* ===================== 全局基础样式 【核心美化】===================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            /* 全局平滑滚动 */
+        }
+
+        body {
+            background: linear-gradient(145deg, #121212, #1e1e1e);
+            color: #e0e0e0;
+            font-family: "Microsoft YaHei", Consolas, monospace;
+            line-height: 1.85;
+            padding: 20px 15px;
+            min-height: 100vh;
+        }
+
+        /* 页面主体居中容器 */
+        .container {
+            max-width: 920px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* ===================== 标题样式 【美化升级】===================== */
+        h1 {
+            color: #ff6b6b;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+        }
+
+        /* ===================== 教程板块样式 【移除折叠 保留美化】===================== */
+        .collapse-item {
+            background: linear-gradient(145deg, #252526, #2c2c2c);
+            border-radius: 10px;
+            padding: 15px 18px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+            border: 1px solid #333;
+        }
+
+        .collapse-title {
+            display: flex;
+            align-items: center;
+            font-size: 17px;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin: 0 0 8px 0;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .collapse-content {
+            padding: 5px 0 10px 25px;
+            color: #d4d4d4;
+            display: block;
+            /* 强制显示内容 */
+        }
+
+        /* 子级教程板块 区分层级 */
+        .collapse-content .collapse-item {
+            background: linear-gradient(145deg, #2c2c2c, #303030);
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            border-color: #444;
+        }
+
+        /* ===================== 内容样式 【美化优化】===================== */
+        .path-highlight {
+            background: linear-gradient(145deg, #2d2d2d, #333);
+            color: #4ec9b0;
+            padding: 5px 10px;
+            border-radius: 8px;
+            border-left: 3px solid #4ec9b0;
+            font-family: Consolas, monospace;
+            font-size: 15px;
+            display: inline-block;
+            margin: 3px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #WT1 {
+            font-size: 20px;
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            /* 核心：水平居中 */
+        }
+
+        /* 关键词标红高亮 醒目不刺眼 */
+        .red-text {
+            color: #ff6b6b;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(255, 71, 119, 0.2);
+        }
+
+        /* 列表样式 - 彻底取消所有li标识符 + 优化间距 */
+        .collapse-content ul {
+            margin: 12px 0;
+            padding-left: 0;
+            list-style: none !important;
+        }
+
+        .collapse-content li {
+            margin: 12px 0;
+            font-size: 15px;
+            list-style: none !important;
+            padding-left: 0;
+        }
+
+        /* 图片样式 - 点击放大+悬浮高亮+圆角美化 【核心美化】 */
+        .collapse-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #444;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .img-view {
+            cursor: zoom-in;
+        }
+
+        .img-view:hover {
+            border-color: #ff6b6b;
+            transform: scale(1.005);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.2);
+        }
+
+        /* ===================== 游戏联机补丁专区跳转按钮样式 【美化升级】 ===================== */
+        .patch-jump-btn {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            padding: 15px 0;
+            background: linear-gradient(145deg, #9c27b0, #8e24aa);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3), 0 2px 5px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+
+        .patch-jump-btn:hover {
+            background: linear-gradient(145deg, #ab27b9, #9c27b0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(156, 39, 176, 0.4);
+            color: #fff;
+        }
+
+        .patch-jump-btn i {
+            margin-right: 10px;
+            font-style: normal;
+        }
+
+        /* ===================== 点击图片放大功能 样式 ===================== */
+        .img-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .img-modal img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 8px;
+            border: 2px solid #444;
+            cursor: zoom-out;
+        }
+
+        .img-modal.show {
+            display: flex;
+            animation: modalFade 0.2s ease;
+        }
+
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img-modal" onclick="this.classList.remove('show')"><img src="" alt="教程大图"></div>
+
+    <div class="container">
+        <h1>升级补丁使用教程</h1>
+
+        <a href="OnlinePatch.html" class="patch-jump-btn" target="_blank">
+            <i>⬅️</i> 返回主页 → 玄学游戏资源列表
+        </a>
+        <span class="path-highlight" id="WT1">本网站采用免费部署 图片加载较慢 请耐心等待 敬请谅解</span>
+
+        <div class="collapse-item" id="part1">
+            <div class="collapse-title">
+                玄学游戏升级补丁使用教程
+            </div>
+            <div class="collapse-content">
+
+                <div class="collapse-item">
+                    <div class="collapse-content">
+                        <ul>
+                            <li><p class="path-highlight">1. 检查是否缺少必需文件<span class="red-text">Patch文件夹</span> 和<span class="red-text">Patch_data.dll文件</span></p></li>
+                            <img src="images/19.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                            <li><p class="path-highlight">2. 双击打开<span class="red-text">自动安装</span>程序</p></li>
+                            <img src="images/20.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 仅保留图片放大功能，删除折叠交互函数
+        const imgViewList = document.querySelectorAll('.img-view');
+        const imgModal = document.querySelector('.img-modal');
+        const modalImg = imgModal.querySelector('img');
+        imgViewList.forEach(img => {
+            img.onclick = function (e) {
+                e.stopPropagation();
+                modalImg.src = this.src;
+                imgModal.classList.add('show');
+            }
+        });
+    </script>
+</body>
+
+</html>
