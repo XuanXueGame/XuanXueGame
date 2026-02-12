@@ -48,17 +48,18 @@
             text-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
         }
 
-        /* ===================== 教程板块样式 【移除折叠 保留美化】===================== */
+        /* ===================== 折叠面板样式 【重点美化+质感拉满】===================== */
         .collapse-item {
             background: linear-gradient(145deg, #252526, #2c2c2c);
             border-radius: 10px;
             padding: 15px 18px;
             margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0,0,0,0.2);
             border: 1px solid #333;
         }
 
         .collapse-title {
+            cursor: pointer;
             display: flex;
             align-items: center;
             font-size: 17px;
@@ -67,17 +68,46 @@
             margin: 0 0 8px 0;
             padding: 10px 12px;
             border-radius: 8px;
-            background: rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.15);
+        }
+
+        .collapse-title:hover {
+            background: linear-gradient(145deg, #333333, #2d2d2d);
+            color: #ff8080;
+            transform: translateX(2px);
+        }
+
+        .collapse-arrow {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            transition: transform 0.3s ease-out;
+        }
+
+        .collapse-title.open .collapse-arrow {
+            transform: rotate(90deg);
+            color: #4ec9b0;
         }
 
         .collapse-content {
+            display: none;
             padding: 5px 0 10px 25px;
             color: #d4d4d4;
-            display: block;
-            /* 强制显示内容 */
         }
 
-        /* 子级教程板块 区分层级 */
+        .collapse-content.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        /* 展开淡入动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 子级折叠面板 区分层级 */
         .collapse-content .collapse-item {
             background: linear-gradient(145deg, #2c2c2c, #303030);
             margin: 10px 0;
@@ -96,16 +126,13 @@
             font-size: 15px;
             display: inline-block;
             margin: 3px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-
         #WT1 {
             font-size: 20px;
             display: block;
             text-align: center;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            /* 核心：水平居中 */
+            margin: 0 auto 20px auto; /* 核心：水平居中 + 底部间距 */
         }
 
         /* 关键词标红高亮 醒目不刺眼 */
@@ -121,7 +148,6 @@
             padding-left: 0;
             list-style: none !important;
         }
-
         .collapse-content li {
             margin: 12px 0;
             font-size: 15px;
@@ -136,21 +162,113 @@
             margin: 10px 0;
             border-radius: 8px;
             border: 2px solid #444;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
             transition: all 0.3s ease;
         }
-
         .img-view {
             cursor: zoom-in;
         }
-
         .img-view:hover {
             border-color: #ff6b6b;
             transform: scale(1.005);
-            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.2);
+            box-shadow: 0 6px 15px rgba(255,107,107,0.2);
         }
 
-        /* ===================== 游戏联机补丁专区跳转按钮样式 【美化升级】 ===================== */
+        /* ===================== 教程目录样式 【简化版 - 无折叠】===================== */
+        .catalog {
+            background: linear-gradient(145deg, #252526, #2c2c2c);
+            border-radius: 10px;
+            padding: 20px 22px;
+            margin: 18px 0 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border-left: 4px solid #ff6b6b;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .catalog h2 {
+            color: #ff6b6b;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .catalog ul {
+            padding-left: 0;
+            margin: 0;
+            list-style: none !important;
+        }
+
+        /* 简化目录项 - 无箭头、无折叠 */
+        .catalog-level-1 li {
+            margin: 12px 0;
+            list-style: none !important;
+            padding: 8px 0;
+            border-bottom: 1px dashed #333;
+        }
+
+        /* 二级目录直接显示，无缩进箭头 */
+        .catalog-level-2 li {
+            margin: 8px 0 8px 20px;
+            padding: 4px 0;
+            border: none;
+        }
+
+        .catalog a {
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            padding: 3px 5px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .catalog a:hover {
+            color: #ff6b6b;
+            text-decoration: none;
+            background: rgba(255,107,107,0.1);
+            padding-left: 8px;
+        }
+
+        /* ===================== 全局链接样式优化 ===================== */
+        a {
+            color: #4ec9b0;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        a:hover {
+            color: #ff6b6b;
+        }
+
+        /* ===================== 回到顶部按钮 【美化升级】===================== */
+        .back-top-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 30px;
+            background: linear-gradient(145deg, #ff6b6b, #e55555);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            padding: 13px 18px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3), 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-top-btn:hover {
+            background: linear-gradient(145deg, #ff8080, #d44444);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* 游戏联机补丁专区跳转按钮样式 【美化升级】 */
         .patch-jump-btn {
             display: block;
             width: 100%;
@@ -165,17 +283,15 @@
             border-radius: 30px;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3), 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3), 0 2px 5px rgba(0,0,0,0.2);
             letter-spacing: 1px;
         }
-
         .patch-jump-btn:hover {
             background: linear-gradient(145deg, #ab27b9, #9c27b0);
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(156, 39, 176, 0.4);
             color: #fff;
         }
-
         .patch-jump-btn i {
             margin-right: 10px;
             font-style: normal;
@@ -184,18 +300,14 @@
         /* ===================== 点击图片放大功能 样式 ===================== */
         .img-modal {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.98);
+            top: 0; left: 0; right:0; bottom:0;
+            background: rgba(0,0,0,0.98);
             z-index: 99999;
             display: none;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
-
         .img-modal img {
             max-width: 95%;
             max-height: 95%;
@@ -203,58 +315,118 @@
             border: 2px solid #444;
             cursor: zoom-out;
         }
-
         .img-modal.show {
             display: flex;
             animation: modalFade 0.2s ease;
         }
-
         @keyframes modalFade {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 
 <body>
+    <button class="back-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ 回到顶部</button>
+
     <div class="img-modal" onclick="this.classList.remove('show')"><img src="" alt="教程大图"></div>
 
     <div class="container">
         <h1>升级补丁使用教程</h1>
 
-        <a href="OnlinePatch.html" class="patch-jump-btn" target="_blank">
+        <a href="index.html" class="patch-jump-btn" target="_blank">
             <i>⬅️</i> 返回主页 → 玄学游戏资源列表
         </a>
         <span class="path-highlight" id="WT1">本网站采用免费部署 图片加载较慢 请耐心等待 敬请谅解</span>
 
+        <!-- 简化版教程目录 - 无折叠、仅展示核心项 -->
+        <div class="catalog" id="catalog-box">
+            <h2>📚 教程目录</h2>
+            <ul class="catalog-level-1">
+                <li>
+                    <a href="#part1-1" onclick="openTargetPanel('part1-1')">自动安装</a>
+                </li>
+                <li>
+                    <a href="#part1-2" onclick="openTargetPanel('part1-2')">手动安装</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 教程内容面板 -->
         <div class="collapse-item" id="part1">
-            <div class="collapse-title">
-                玄学游戏升级补丁使用教程
+            <!-- 自动安装 - 默认展开 -->
+            <div class="collapse-item" id="part1-1">
+                <div class="collapse-title open" onclick="toggleCollapse(this)">
+                    <span class="collapse-arrow">▶</span>
+                    自动安装
+                </div>
+                <div class="collapse-content show">
+                    <ul>
+                        <li><p class="path-highlight">1. 检查是否缺少必需文件 <span class="red-text">Patch1/Patch2文件夹</span> 和 <span class="red-text">Patch1_data.dll/Patch2_data.dll文件</span></p></li>
+                        <img src="images/19.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                        <li><p class="path-highlight">2. 双击打开<span class="red-text">自动安装</span>程序，游戏目录仅允许粘贴或点击选择目录</p></li>
+                        <img src="images/20.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                        <li><p class="path-highlight">3. 选择正确游戏目录   <span class="red-text">验证游戏完整性是升级完成后自动校验升级后的游戏所有文件（游戏打包人不同会出现个别错误是正常现象）</span></p></li>
+                        <img src="images/22.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                        <img src="images/21.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                        <li><p class="path-highlight">4. <span class="red-text">注意：升级游戏版本存在风险，建议提前备份游戏文件</span></p></li>
+                        <img src="images/23.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                        <li><p class="path-highlight">5. 升级完成后自动打开校验文件   <span class="red-text">校验完成后即可启动游戏进行查看版本是否升级成功</span></p></li>
+                        <img src="images/24.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                    </ul>
+                </div>
             </div>
-            <div class="collapse-content">
-
-                <div class="collapse-item">
-                    <div class="collapse-content">
-                        <ul>
-                            <li><p class="path-highlight">1. 检查是否缺少必需文件<span class="red-text">Patch文件夹</span> 和<span class="red-text">Patch_data.dll文件</span></p></li>
-                            <img src="images/19.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
-                            <li><p class="path-highlight">2. 双击打开<span class="red-text">自动安装</span>程序</p></li>
-                            <img src="images/20.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
-
-                        </ul>
-                    </div>
+            
+            <!-- 手动安装 - 默认折叠 -->
+            <div class="collapse-item" id="part1-2">
+                <div class="collapse-title" onclick="toggleCollapse(this)">
+                    <span class="collapse-arrow">▶</span>
+                    手动安装
+                </div>
+                <div class="collapse-content">
+                    <ul>
+                        <li><p class="path-highlight">1. 复制<span class="red-text">Patch2文件夹内的</span>所有文件</p></li>
+                        <img src="images/25.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                        <li><p class="path-highlight">2. 将文件粘贴到正确的游戏目录下</p></li>
+                        <img src="images/21.png" class="img-view" alt="图片丢失请在玄学资源列表进行反馈">
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // 仅保留图片放大功能，删除折叠交互函数
+        // 折叠面板切换函数
+        function toggleCollapse(titleElement) {
+            titleElement.classList.toggle('open');
+            const contentElement = titleElement.nextElementSibling;
+            contentElement.classList.toggle('show');
+        }
+
+        // 打开指定目标面板（目录跳转用）
+        function openTargetPanel(targetId) {
+            const targetPanel = document.getElementById(targetId);
+            if (!targetPanel) return;
+            
+            // 展开目标面板
+            const targetTitle = targetPanel.querySelector('.collapse-title');
+            targetTitle.classList.add('open');
+            targetTitle.nextElementSibling.classList.add('show');
+            
+            // 折叠其他面板
+            document.querySelectorAll('.collapse-item').forEach(item => {
+                if (item.id !== targetId && item.id !== 'part1') {
+                    const title = item.querySelector('.collapse-title');
+                    title.classList.remove('open');
+                    title.nextElementSibling.classList.remove('show');
+                }
+            });
+            
+            // 滚动到目标位置
+            targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // 图片放大功能
         const imgViewList = document.querySelectorAll('.img-view');
         const imgModal = document.querySelector('.img-modal');
         const modalImg = imgModal.querySelector('img');
@@ -267,5 +439,4 @@
         });
     </script>
 </body>
-
 </html>
